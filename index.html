@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="SRM Institute of Science & Technology - Outing Pass Management System. Request and manage your hostel outing passes online.">
+  <title>Outing Pass Management | SRM Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="srm_logo.png" type="image/png">
+</head>
+
+<body>
+
+  <!-- ===== Navbar (Login) ===== -->
+  <nav id="navbarLogin" class="navbar">
+    <a href="#" class="navbar-brand">
+      <img src="srm_logo.png" alt="SRM Logo">
+      <span>Request Outing</span>
+    </a>
+    <div class="navbar-links">
+      <a href="#">Request Outing</a>
+      <a href="#" class="btn-login-page">Login Page</a>
+    </div>
+  </nav>
+
+  <!-- ===== Navbar (Dashboard) ===== -->
+  <nav id="navbarDashboard" class="navbar" style="display: none;">
+    <a href="#" class="navbar-brand">
+      <img src="srm_logo.png" alt="SRM Logo">
+      <span>Request Outing</span>
+    </a>
+    <div class="navbar-center">
+      <a href="#" class="nav-active">Request Outing</a>
+    </div>
+    <div class="navbar-links">
+      <span id="navEmail" class="nav-email" contenteditable="true" style="outline: none;">ap6178@srmist.edu.in</span>
+      <button id="logoutBtn" class="btn-logout">Logout</button>
+    </div>
+  </nav>
+
+  <!-- ===== Login Section ===== -->
+  <section id="loginSection" class="hero">
+    <div class="hero-container">
+
+      <!-- Left Panel - Info -->
+      <div class="info-panel">
+        <div class="logo-wrapper">
+          <img src="srm_logo.png" alt="SRM Institute of Science & Technology">
+        </div>
+        <h1>Outing Pass Management</h1>
+        <p class="subtitle">SRM Institute of Science & Technology</p>
+
+        <ul class="feature-list">
+          <li>
+            <span class="feature-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </span>
+            Quick & Easy Outing Requests
+          </li>
+          <li>
+            <span class="feature-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </span>
+            Real-time Approval Status
+          </li>
+          <li>
+            <span class="feature-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </span>
+            Parent Notification System
+          </li>
+          <li>
+            <span class="feature-check">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+                stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+              </svg>
+            </span>
+            Secure Digital OTP
+          </li>
+        </ul>
+
+        <div class="availability-notice">
+          <span class="availability-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+            </svg>
+          </span>
+          <p>Available for all SRM students with valid hostel accommodation</p>
+        </div>
+      </div>
+
+      <!-- Right Panel - Login -->
+      <div class="login-panel">
+        <h2>Welcome Back!</h2>
+        <div class="divider"></div>
+        <p class="login-subtitle">Sign in to manage your outing passes</p>
+
+        <button id="googleSignIn" class="btn-google">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 48 48">
+            <path fill="#FFC107"
+              d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
+            <path fill="#FF3D00"
+              d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z" />
+            <path fill="#4CAF50"
+              d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" />
+            <path fill="#1976D2"
+              d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
+          </svg>
+          Sign in with Google
+        </button>
+
+        <div class="secure-login">
+          <span class="secure-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+          </span>
+          <div class="secure-text">
+            <h4>Secure Login</h4>
+            <p>Only @srmist.edu.in emails accepted</p>
+          </div>
+        </div>
+
+        <p class="help-text">Need help? Contact your hostel warden or <a href="#">Hostel Office</a></p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Dashboard Section (Request Outing) ===== -->
+  <section id="dashboardSection" class="dashboard-page" style="display: none;">
+    <div class="dashboard-container">
+
+      <!-- Request Outing Form -->
+      <div class="form-card">
+        <!-- Page Title -->
+        <h1 class="page-title">Request Outing</h1>
+        <div class="page-divider"></div>
+
+        <div class="warning-banner">
+          <p>You already have a pending or active outing request. Please complete or delete it before making a new one.
+          </p>
+        </div>
+        <div class="form-inner-box">
+          <div class="form-group">
+            <label>Full Name:</label>
+            <input type="text" placeholder="Enter your full name" class="input-readonly">
+          </div>
+          <div class="form-group">
+            <label>Email (SRM):</label>
+            <input type="email" placeholder="Enter your SRM email" class="input-readonly">
+          </div>
+          <div class="form-group">
+            <label>Room Number:</label>
+            <input type="text" id="roomNumber" placeholder="Enter your room number" class="input-highlight">
+          </div>
+          <div class="form-group">
+            <label>Hostel Name:</label>
+            <input type="text" placeholder="Enter hostel name" class="input-readonly">
+          </div>
+          <div class="form-group">
+            <label class="label-highlight">Out Date:</label>
+            <input type="date" id="outDate">
+          </div>
+          <div class="form-group">
+            <label class="label-highlight">Out Time:</label>
+            <input type="time" id="outTime">
+          </div>
+          <div class="form-group">
+            <label class="label-highlight">In Date:</label>
+            <input type="date" id="inDate">
+          </div>
+          <div class="form-group">
+            <label class="label-highlight">In Time:</label>
+            <input type="time" id="inTime">
+          </div>
+          <div class="form-group">
+            <label class="label-highlight">Reason for Outing:</label>
+            <input type="text" id="reason" placeholder="Enter reason for outing" class="input-highlight">
+          </div>
+          <div class="form-group">
+            <label>Parent Email:</label>
+            <input type="email" placeholder="Enter parent email" class="input-readonly">
+          </div>
+          <div class="form-group">
+            <label>Parent Phone:</label>
+            <input type="tel" placeholder="Enter parent phone number" class="input-readonly">
+          </div>
+        </div>
+        <button id="sendRequestBtn" class="btn-send-request">Send Request</button>
+      </div>
+
+      <!-- Output Section (shown after form submit) -->
+      <div id="outputSection" class="form-card" style="display: none;">
+        <!-- Current Request + OTP Row -->
+        <div class="request-otp-row">
+          <div class="current-request-card">
+            <div class="request-header">
+              <h3>Current Request</h3>
+              <span class="status-badge status-still-out">STILL_OUT</span>
+            </div>
+            <div class="request-details" id="requestDetails"></div>
+            <div class="handled-info">
+              <p id="handledOn"></p>
+              <p><strong>Handled by:</strong> <span contenteditable="true" style="outline: none;">Navin</span></p>
+            </div>
+          </div>
+
+          <div class="otp-card">
+            <h2>OTP for Arch Gate</h2>
+            <div class="otp-divider"></div>
+            <p class="otp-date" id="otpDate"></p>
+            <div class="otp-code" id="otpCode"></div>
+            <p class="otp-note">Please present this OTP at the Arch Gate when returning to SRM.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Dark Mode Toggle -->
+  <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 008.002-4.148 9.718 9.718 0 01.998-1.85z" />
+    </svg>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
