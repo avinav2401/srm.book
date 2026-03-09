@@ -121,8 +121,11 @@ document.addEventListener('DOMContentLoaded', () => {
         allInputs.forEach(input => {
             if (fieldsToReset.includes(input)) {
                 input.value = ''; // Clear value
-                input.disabled = false; // Keep it enabled so it looks 100% default
-                input.classList.remove('locked-input');
+                input.disabled = true; // Disable it so it can't be typed in
+                input.classList.remove('input-highlight', 'locked-input');
+                // Keep background white and text normal to look default
+                input.style.backgroundColor = '#ffffff';
+                input.style.borderColor = '#e0e0e0';
             } else {
                 input.disabled = true;
                 input.classList.remove('input-highlight'); // Remove highlight when locked
@@ -138,6 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
             el.contentEditable = 'false';
             el.classList.add('locked-input');
         });
+
+        // 3. Disable navEmail but don't add the locked class so it keeps its style
+        const navEmail = document.getElementById('navEmail');
+        if (navEmail) navEmail.contentEditable = 'false';
 
         // 3. Hide the lock button itself
         lockBtn.style.display = 'none';
