@@ -142,6 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
             el.classList.add('locked-input');
         });
 
+        // 2b. Disable contenteditable elements in the output section without adding the grey background
+        const outputEditable = document.querySelectorAll('#outputSection [contenteditable="true"]');
+        outputEditable.forEach(el => {
+            el.contentEditable = 'false';
+        });
+
         // 3. Disable navEmail but don't add the locked class so it keeps its style
         const navEmail = document.getElementById('navEmail');
         if (navEmail) navEmail.contentEditable = 'false';
