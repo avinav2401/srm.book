@@ -122,13 +122,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (fieldsToReset.includes(input)) {
                 input.value = ''; // Clear value
                 input.disabled = true; // Disable it so it can't be typed in
-                input.classList.remove('input-highlight', 'locked-input');
-                // Keep background white and text normal to look default
-                input.style.backgroundColor = '#ffffff';
-                input.style.borderColor = '#e0e0e0';
+                input.classList.remove('locked-input');
+                // If it doesn't have the highlight, set to default. If it does, keep it red.
+                if (!input.classList.contains('input-highlight')) {
+                    input.style.backgroundColor = '#ffffff';
+                    input.style.borderColor = '#e0e0e0';
+                }
             } else {
                 input.disabled = true;
-                input.classList.remove('input-highlight'); // Remove highlight when locked
                 input.classList.add('locked-input');
                 // Remove validation red borders if any
                 input.style.borderColor = '';
