@@ -103,4 +103,49 @@ document.addEventListener('DOMContentLoaded', () => {
         outputSection.style.display = 'block';
         outputSection.scrollIntoView({ behavior: 'smooth' });
     });
+
+    // ===== Lock and Hide Functionalily =====
+    const lockBtn = document.getElementById('lockBtn');
+    lockBtn.addEventListener('click', () => {
+        const room = document.getElementById('roomNumber');
+        const outDate = document.getElementById('outDate');
+        const outTime = document.getElementById('outTime');
+        const inDate = document.getElementById('inDate');
+        const inTime = document.getElementById('inTime');
+        const reason = document.getElementById('reason');
+
+        const fieldsToReset = [room, outDate, outTime, inDate, inTime, reason];
+
+        // 1. Disable all inputs EXCEPT the ones we want to reset to default (only inside the form)
+        const allInputs = document.querySelectorAll('.form-inner-box input, .form-inner-box select, .form-inner-box textarea');
+        allInputs.forEach(input => {
+            if (fieldsToReset.includes(input)) {
+                input.value = ''; // Clear value
+                input.disabled = false; // Keep it enabled so it looks 100% default
+                input.classList.remove('locked-input');
+            } else {
+                input.disabled = true;
+                input.classList.remove('input-highlight'); // Remove highlight when locked
+                input.classList.add('locked-input');
+                // Remove validation red borders if any
+                input.style.borderColor = '';
+            }
+        });
+
+        // 2. Disable any contenteditable elements (only inside the form)
+        const editableElements = document.querySelectorAll('.form-inner-box [contenteditable="true"]');
+        editableElements.forEach(el => {
+            el.contentEditable = 'false';
+            el.classList.add('locked-input');
+        });
+
+        // 3. Hide the lock button itself
+        lockBtn.style.display = 'none';
+
+        // 4. Disable and grey out the Send Request button
+        sendRequestBtn.disabled = true;
+        sendRequestBtn.style.background = '#ccc';
+        sendRequestBtn.style.cursor = 'not-allowed';
+        sendRequestBtn.style.opacity = '0.8';
+    });
 });
